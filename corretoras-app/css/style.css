@@ -1,0 +1,49 @@
+/* Estilo de corpo */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo de cabeçalhos */
+h1, h2 {
+    color: #343a40;
+    font-weight: 600;
+}
+
+/* Estilo das mensagens de status */
+#status-message {
+    margin-top: 20px;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1050; /* Para garantir que fique sobre outros elementos */
+}
+
+/* Estilo dos botões */
+.btn {
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+/* Estilo da lista de corretoras */
+#lista-corretoras {
+    margin-top: 20px;
+}
+
+/* Estilo dos modais */
+.modal-content {
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid #e9ecef;
+}
+
+.modal-body {
+    padding: 2rem;
+}

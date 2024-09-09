@@ -1,0 +1,114 @@
+# Cadastro de Corretoras
+
+Este projeto é uma aplicação para cadastro e gerenciamento de corretoras, incluindo criação, leitura, atualização e exclusão de informações, como Nome Fantasia, Razão Social, CNPJ e Endereço. A aplicação foi desenvolvida utilizando PHP puro para a API, MySQL como banco de dados, e HTML, CSS, JavaScript (com jQuery e Bootstrap) no front-end.
+
+## Tecnologias Utilizadas
+
+- **PHP**: Back-end para manipulação de dados via requisições POST, com retornos em JSON.
+- **MySQL**: Banco de dados para armazenar as informações das corretoras.
+- **HTML/CSS/JavaScript**: Front-end com jQuery e Bootstrap para estilização e requisições Ajax.
+- **Autenticação**: Requisições autenticadas com um token fixo.
+
+## Funcionalidades
+
+1. **Cadastro de corretoras**: Cadastro de Nome Fantasia, Razão Social, CNPJ e Endereço.
+2. **Listagem de corretoras**: Requisições GET via Ajax para listar corretoras sem recarregar a página.
+3. **Atualização e exclusão**: Edição e remoção de corretoras diretamente na interface.
+4. **Autenticação com Token**: Autenticação das requisições à API por meio de um token fixo.
+5. **Requisições Ajax**: Operações realizadas sem recarregar a página.
+
+## Executando o Projeto
+
+### 1. Usando Docker (Recomendado)
+
+Se você tem o Docker e o Docker Compose instalados, a maneira mais simples de executar o projeto é usando o Docker Compose.
+
+#### Passos:
+
+1. Clone o repositório:
+
+    ```bash
+    git clone <URL do repositório>
+    cd corretoras-app
+    ```
+
+2. Execute o Docker Compose:
+
+    ```bash
+    docker-compose up --build -d
+    ```
+
+3. Acesse a aplicação:
+
+    Abra `http://localhost:8000` no seu navegador.
+
+#### Banco de Dados:
+
+Para acessar o MySQL:
+
+- **Usuário**: user
+- **Senha**: password
+- **Banco de Dados**: corretoras_db
+
+O banco será inicializado automaticamente com a estrutura correta a partir do arquivo `database.sql`.
+
+**Nota para usuários Windows**: Certifique-se de ter o Docker Desktop instalado.
+
+### 2. Executando Manualmente (Sem Docker)
+
+Se preferir configurar manualmente:
+
+1. Requisitos:
+
+- PHP 7.4 ou superior
+- MySQL 8.0 ou superior
+- Servidor web (Apache ou Nginx)
+- Composer para gerenciar dependências PHP
+
+2. Configuração Manual:
+
+Clone o repositório e navegue até o diretório:
+
+    ```bash
+    git clone <URL do repositório>
+    cd corretoras-app
+    ```
+
+Configure seu servidor web (Apache/Nginx) para apontar ao diretório `src`.
+
+3. Instale as dependências PHP:
+
+    ```bash
+    cd src
+    composer install
+    ```
+
+4. Configure o banco de dados MySQL:
+
+    ```sql
+    CREATE DATABASE corretoras_db;
+    CREATE USER 'user'@'localhost' IDENTIFIED BY 'password';
+    GRANT ALL PRIVILEGES ON corretoras_db.* TO 'user'@'localhost';
+    FLUSH PRIVILEGES;
+    ```
+
+    Em seguida, importe a estrutura do banco de dados:
+
+    ```bash
+    mysql -u user -p corretoras_db < database/database.sql
+    ```
+
+5. Configure a API:
+
+    Edite o arquivo de configuração `db.php` com as credenciais do banco de dados:
+
+    ```php
+    define('DB_SERVER', 'localhost');
+    define('DB_USERNAME', 'user');
+    define('DB_PASSWORD', 'password');
+    define('DB_DATABASE', 'corretoras_db');
+    ```
+
+Acesse a aplicação via `http://localhost`.
+
+
